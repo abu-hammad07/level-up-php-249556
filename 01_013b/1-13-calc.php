@@ -3,7 +3,23 @@
 
 	function process_form() {
 		// Challenge: define this function
+		$numbers = trim(str_ireplace(' ', '', $_POST['numbers']));
+		$numbers = explode(',', $numbers);
 
+		switch (strtolower($_POST['submit'])){
+			case 'add';
+			return calculator\add($numbers);
+			break;
+			case 'multiply';
+			return calculator\multiply($numbers);
+			break;
+			case 'average';
+			return calculator\average($numbers);
+			default;
+			return $_POST['numbers'];
+			break;
+		}
+		return $_POST['numbers'];
 	} 
 	
 	?>
